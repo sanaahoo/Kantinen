@@ -1,0 +1,12 @@
+/Users/sanaahouira/RiderProjects/Kantinen/Core/bin/Debug/net8.0/Core.deps.json
+/Users/sanaahouira/RiderProjects/Kantinen/Core/bin/Debug/net8.0/Core.dll
+/Users/sanaahouira/RiderProjects/Kantinen/Core/bin/Debug/net8.0/Core.pdb
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.csproj.AssemblyReference.cache
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.AssemblyInfoInputs.cache
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.AssemblyInfo.cs
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.csproj.CoreCompileInputs.cache
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.dll
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/refint/Core.dll
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.pdb
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/ref/Core.dll

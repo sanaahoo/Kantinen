@@ -1,0 +1,117 @@
+@page "/event"
+@inject IEventsService EventsService
+@using Core.Model
+@using Kantinen.Services
+
+
+
+<link href="css/event.css" rel="stylesheet" />
+
+<h3>Event Management</h3>
+<div class="event-container">
+    <form @onsubmit="HandleEventSubmit">
+        <fieldset>
+            <legend>Add a New Event</legend>
+
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" @bind="NewEvent.Name" required />
+            </div>
+
+            <div>
+                <label for="dato">Date:</label>
+                <input type="date" id="dato" @bind="NewEvent.Dato" required />
+            </div>
+
+            <div>
+                <label for="lokation">Location:</label>
+                <input type="text" id="lokation" @bind="NewEvent.Lokation" required />
+            </div>
+
+            <div>
+                <label for="deltagerAntal">Participants:</label>
+                <input type="number" id="deltagerAntal" @bind="NewEvent.DeltagerAntal" required />
+            </div>
+
+            <div>
+                <label for="madValg">Food Choice:</label>
+                <input type="text" id="madValg" @bind="NewEvent.MadValg" />
+            </div>
+
+            <div>
+                <label for="saerligeOensker">Special Requests:</label>
+                <input type="text" id="saerligeOensker" @bind="NewEvent.SærligeØnsker" />
+            </div>
+
+            <div>
+                <label for="kunde">Customer:</label>
+                <input type="text" id="kunde" @bind="NewEvent.Kunde" />
+            </div>
+
+            <button type="submit">Add Event</button>
+        </fieldset>
+    </form>
+
+    <hr />
+
+    <h4>Event List</h4>
+    @if (EventList.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Participants</th>
+                    <th>Food Choice</th>
+                    <th>Special Requests</th>
+                    <th>Customer</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var evt in EventList)
+                {
+                    <tr>
+                        <td>@evt.Name</td>
+                        <td>@evt.Dato.ToShortDateString()</td>
+                        <td>@evt.Lokation</td>
+                        <td>@evt.DeltagerAntal</td>
+                        <td>@evt.MadValg</td>
+                        <td>@evt.SærligeØnsker</td>
+                        <td>@evt.Kunde</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No events available.</p>
+    }
+</div>
+
+@code {
+    private Events NewEvent { get; set; } = new Events();
+    private List<Events> EventList { get; set; } = new List<Events>();
+
+    private Task HandleEventSubmit()
+    {
+        // Add new event through service
+        EventsService.AddEvent(NewEvent);
+
+        // Refresh the event list
+        EventList = EventsService.GetEvents().ToList();
+
+        // Reset the form
+        NewEvent = new Events();
+
+        return Task.CompletedTask;
+    }
+
+    protected override void OnInitialized()
+    {
+        // Load existing events from the service
+        EventList = EventsService.GetEvents().ToList();
+    }
+}

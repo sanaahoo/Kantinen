@@ -1,0 +1,6 @@
+/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/obj/Debug/net8.0/KantinenApp.csproj.AssemblyReference.cache
+/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/obj/Debug/net8.0/KantinenApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/obj/Debug/net8.0/KantinenApp.AssemblyInfoInputs.cache
+/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/obj/Debug/net8.0/KantinenApp.AssemblyInfo.cs
+/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/obj/Debug/net8.0/KantinenApp.csproj.CoreCompileInputs.cache
+/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/obj/Debug/net8.0/KantinenApp.MvcApplicationPartsAssemblyInfo.cache

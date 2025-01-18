@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KantinenApp", "KantinenApp\KantinenApp.csproj", "{5AD54541-C9FF-49AF-802F-5E5DA8F9BFDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{DE72A575-12E1-415A-B8C1-4624A37CD727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KantinenAPI", "KantinenAPI\KantinenAPI.csproj", "{DA33D1A1-4353-4F05-BEC2-8D1C240F8868}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AD54541-C9FF-49AF-802F-5E5DA8F9BFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD54541-C9FF-49AF-802F-5E5DA8F9BFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD54541-C9FF-49AF-802F-5E5DA8F9BFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD54541-C9FF-49AF-802F-5E5DA8F9BFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE72A575-12E1-415A-B8C1-4624A37CD727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE72A575-12E1-415A-B8C1-4624A37CD727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE72A575-12E1-415A-B8C1-4624A37CD727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE72A575-12E1-415A-B8C1-4624A37CD727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA33D1A1-4353-4F05-BEC2-8D1C240F8868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA33D1A1-4353-4F05-BEC2-8D1C240F8868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA33D1A1-4353-4F05-BEC2-8D1C240F8868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA33D1A1-4353-4F05-BEC2-8D1C240F8868}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

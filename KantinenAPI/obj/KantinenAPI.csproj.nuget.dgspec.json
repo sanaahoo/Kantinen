@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sanaahouira/RiderProjects/Kantinen/KantinenAPI/KantinenAPI.csproj": {}
+    "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\KantinenAPI\\KantinenAPI.csproj": {}
   },
   "projects": {
-    "/Users/sanaahouira/RiderProjects/Kantinen/Core/Core.csproj": {
+    "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sanaahouira/RiderProjects/Kantinen/Core/Core.csproj",
+        "projectUniqueName": "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "/Users/sanaahouira/RiderProjects/Kantinen/Core/Core.csproj",
-        "packagesPath": "/Users/sanaahouira/.nuget/packages/",
-        "outputPath": "/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/",
+        "projectPath": "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\hotso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/sanaahouira/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\hotso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/Users/sanaahouira/.dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,35 +71,41 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/sanaahouira/.dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/sanaahouira/RiderProjects/Kantinen/KantinenAPI/KantinenAPI.csproj": {
+    "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\KantinenAPI\\KantinenAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sanaahouira/RiderProjects/Kantinen/KantinenAPI/KantinenAPI.csproj",
+        "projectUniqueName": "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\KantinenAPI\\KantinenAPI.csproj",
         "projectName": "KantinenAPI",
-        "projectPath": "/Users/sanaahouira/RiderProjects/Kantinen/KantinenAPI/KantinenAPI.csproj",
-        "packagesPath": "/Users/sanaahouira/.nuget/packages/",
-        "outputPath": "/Users/sanaahouira/RiderProjects/Kantinen/KantinenAPI/obj/",
+        "projectPath": "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\KantinenAPI\\KantinenAPI.csproj",
+        "packagesPath": "C:\\Users\\hotso\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\KantinenAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/sanaahouira/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\hotso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/Users/sanaahouira/.dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/sanaahouira/RiderProjects/Kantinen/Core/Core.csproj": {
-                "projectPath": "/Users/sanaahouira/RiderProjects/Kantinen/Core/Core.csproj"
+              "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\Core\\Core.csproj"
               }
             }
           }
@@ -149,7 +161,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/sanaahouira/.dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

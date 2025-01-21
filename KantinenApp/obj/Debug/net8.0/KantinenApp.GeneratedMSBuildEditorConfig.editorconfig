@@ -13,47 +13,47 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = KantinenApp
 build_property.RootNamespace = KantinenApp
-build_property.ProjectDir = /Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/
+build_property.ProjectDir = C:\Users\hotso\Source\Repos\Kantinen\KantinenApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/sanaahouira/RiderProjects/Kantinen/KantinenApp
+build_property.MSBuildProjectDirectory = C:\Users\hotso\Source\Repos\Kantinen\KantinenApp
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/App.razor]
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/Pages/EventPage.Razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXZlbnRQYWdlLlJhem9y
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/Pages/EventPage.Razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXZlbnRQYWdlLlJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/Pages/Login.Razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4uUmF6b3I=
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/Pages/Login.Razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uUmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/_Imports.razor]
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-ay2t7mp1kr
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-mgxnh0s3t2
 
-[/Users/sanaahouira/RiderProjects/Kantinen/KantinenApp/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-o8bq8kwman
+[C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-xuc7haghfj

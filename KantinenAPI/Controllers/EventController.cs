@@ -16,16 +16,16 @@ namespace KantinenAPI.Controllers
             _repository = repository;
         }
 
-        // GET: api/events
         [HttpGet]
+        [Route("getEvents")]
         public async Task<IActionResult> GetEvents()
         {
             var events = await _repository.GetAllEvents();
             return Ok(events);
         }
 
-        // POST: api/events
         [HttpPost]
+        [Route("addEvent")]
         public IActionResult AddEvent( Event evt)
         {
             if (evt == null)

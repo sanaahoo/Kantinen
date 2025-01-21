@@ -15,7 +15,7 @@ namespace Core.Services
 
         public async Task<List<Event>> GetAllAsync()
         {
-            var response = await _httpClient.GetFromJsonAsync<List<Event>>("https://localhost:7086/api/events");
+            var response = await _httpClient.GetFromJsonAsync<List<Event>>("https://localhost:7086/api/events/getEvents");
             return response;
             
         }
@@ -27,7 +27,7 @@ namespace Core.Services
 
         public async Task CreateAsync(Event newEvent)
         {
-            throw new NotImplementedException();
+            await _httpClient.PostAsJsonAsync("https://localhost:7086/api/events/addEvent", newEvent);
         }
 
         public async Task UpdateAsync(string id, Event updatedEvent)

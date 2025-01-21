@@ -18,9 +18,9 @@ namespace KantinenAPI.Controllers
 
         // GET: api/events
         [HttpGet]
-        public IActionResult GetEvents()
+        public async Task<IActionResult> GetEvents()
         {
-            var events = _repository.GetAllEvents();
+            var events = await _repository.GetAllEvents();
             return Ok(events);
         }
 

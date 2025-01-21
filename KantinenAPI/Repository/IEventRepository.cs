@@ -10,8 +10,8 @@ namespace KantinenAPI.Repository
 
     public interface IEventRepository
     {
-        IEnumerable<Event> GetAllEvents();
-        void AddEvent(Event evt);
+        Task<IEnumerable<Event>> GetAllEvents();
+        Task AddEvent(Event evt);
       
         
     }

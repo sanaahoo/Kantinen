@@ -7,27 +7,27 @@ namespace Core.Services
 
     {
  
-    public Task<List<Event>> GetAllAsync()
+    public async Task<List<Event>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Event?> GetByIdAsync(string id)
+    public async Task<Event?> GetByIdAsync(string id)
     {
         throw new NotImplementedException();
     }
 
-    public Task CreateAsync(Event newEvent)
+    public async Task CreateAsync(Event newEvent)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateAsync(string id, Event updatedEvent)
+    public async Task UpdateAsync(string id, Event updatedEvent)
     {
         throw new NotImplementedException();
     }
 
-    public Task DeleteAsync(string id)
+    public async Task DeleteAsync(string id)
     {
         throw new NotImplementedException();
     }

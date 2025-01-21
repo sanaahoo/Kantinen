@@ -30,16 +30,3 @@ app.MapControllers();
 
 app.Run();
 
-public void ConfigureServices(IServiceCollection services)
-{
-    services.Configure<MongoDB>(Configuration.GetSection("MongoDBSettings"));
-
-    services.AddSingleton<IMongoClient, MongoClient>(sp =>
-    {
-        var settings = sp.GetRequiredService<IOptions<MongoDB>>().Value;
-        return new MongoClient(settings.ConnectionString);
-    });
-
-    // Add other services
-    services.AddRazorPages();
-}

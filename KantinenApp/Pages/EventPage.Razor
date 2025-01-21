@@ -1,6 +1,6 @@
 @page "/event"
 @inject IEventServices EventServices
-
+@using Core.Model
 
 
 <link href="css/event.css" rel="stylesheet" />
@@ -13,37 +13,37 @@
 
             <div>
                 <label for="name">Name:</label>
-                <input type="text" id="name" @bind="NewEvent.Name" required />
+                <input type="text" id="name" @bindvalue="NewEvent.Name" required />
             </div>
 
             <div>
                 <label for="dato">Date:</label>
-                <input type="date" id="dato" @bind="NewEvent.Dato" required />
+                <input type="date" id="dato" @bindvalue="NewEvent.Dato" required />
             </div>
 
             <div>
                 <label for="lokation">Location:</label>
-                <input type="text" id="lokation" @bind="NewEvent.Lokation" required />
+                <input type="text" id="lokation" @bindvalue="NewEvent.Lokation" required />
             </div>
 
             <div>
                 <label for="deltagerAntal">Participants:</label>
-                <input type="number" id="deltagerAntal" @bind="NewEvent.DeltagerAntal" required />
+                <input type="number" id="deltagerAntal" @bindvalue="NewEvent.DeltagerAntal" required />
             </div>
 
             <div>
                 <label for="madValg">Food Choice:</label>
-                <input type="text" id="madValg" @bind="NewEvent.MadValg" />
+                <input type="text" id="madValg" @bindvalue="NewEvent.MadValg" />
             </div>
 
             <div>
                 <label for="saerligeOensker">Special Requests:</label>
-                <input type="text" id="saerligeOensker" @bind="NewEvent.SærligeØnsker" />
+                <input type="text" id="saerligeOensker" @bindvalue="NewEvent.SærligeØnsker" />
             </div>
 
             <div>
                 <label for="kunde">Customer:</label>
-                <input type="text" id="kunde" @bind="NewEvent.Kunde" />
+                <input type="text" id="kunde" @bindvalue="NewEvent.Kunde" />
             </div>
 
             <button type="submit">Add Event</button>
@@ -92,24 +92,24 @@
 @code
 
 {
-    private EventModel NewEvent { get; set; } = new EventModel();
-    private List<EventModel> EventList { get; set; } = new List<EventModel>();
+    private Event NewEvent { get; set; } = new Event();
+    private List<Event> EventList { get; set; } = new List<Event>();
 
     private async Task HandleEventSubmit()
     {
         // Add new event through service
-        await EventServices.AddEventAsync(NewEvent);
+        await EventServices.CreateAsync(NewEvent);
 
         // Refresh the event list
-        EventList = (await EventServices.GetEventsAsync()).ToList();
+        EventList = (await EventServices.GetAllAsync());
 
         // Reset the form
-        NewEvent = new EventModel();
+        NewEvent = new Event();
     }
 
     protected override async Task OnInitializedAsync()
     {
         // Load existing events from the service
-        EventList = (await EventServices.GetEventsAsync()).ToList();
+        EventList = (await EventServices.GetAllAsync()).ToList();
     }
 }

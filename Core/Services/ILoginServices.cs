@@ -1,8 +1,8 @@
 using Core.Model;
 
-namespace Kantinen.Services
+namespace Core.Services
 {
-    public interface ILoginService
+    public interface ILoginServices
     {
         Task<bool> VerifyLogin(string username, string password);
         Task<Login> GetLogin(string username);

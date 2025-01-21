@@ -1,7 +1,5 @@
 @page "/event"
-@inject IEventsService EventsService
-@using Core.Model
-@using Kantinen.Services
+@inject IEventServices EventServices
 
 
 
@@ -91,27 +89,27 @@
     }
 </div>
 
-@code {
-    private Events NewEvent { get; set; } = new Events();
-    private List<Events> EventList { get; set; } = new List<Events>();
+@code
 
-    private Task HandleEventSubmit()
+{
+    private EventModel NewEvent { get; set; } = new EventModel();
+    private List<EventModel> EventList { get; set; } = new List<EventModel>();
+
+    private async Task HandleEventSubmit()
     {
         // Add new event through service
-        EventsService.AddEvent(NewEvent);
+        await EventServices.AddEventAsync(NewEvent);
 
         // Refresh the event list
-        EventList = EventsService.GetEvents().ToList();
+        EventList = (await EventServices.GetEventsAsync()).ToList();
 
         // Reset the form
-        NewEvent = new Events();
-
-        return Task.CompletedTask;
+        NewEvent = new EventModel();
     }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         // Load existing events from the service
-        EventList = EventsService.GetEvents().ToList();
+        EventList = (await EventServices.GetEventsAsync()).ToList();
     }
 }

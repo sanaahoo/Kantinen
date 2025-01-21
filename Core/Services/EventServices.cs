@@ -1,17 +1,35 @@
 using System.Net.Http.Json;
 using Core.Model;
 
-namespace Kantinen.Services
+namespace Core.Services
 {
-    public class Event
+    public class EventServices: IEventServices
+
     {
-        public string? Id { get; set; }
-        public string Name { get; set; } = "";
-        public DateTime Dato { get; set; }
-        public string Lokation { get; set; } = "";
-        public int DeltagerAntal { get; set; }
-        public string MadValg { get; set; } = "";
-        public string SærligeØnsker { get; set; } = "";
-        public string Kunde { get; set; } = "";
+ 
+    public Task<List<Event>> GetAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Event?> GetByIdAsync(string id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task CreateAsync(Event newEvent)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateAsync(string id, Event updatedEvent)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task DeleteAsync(string id)
+    {
+        throw new NotImplementedException();
+    }
     }
 }

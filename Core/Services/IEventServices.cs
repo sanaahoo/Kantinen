@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Model;
 
-namespace Kantinen.Services
+namespace Core.Services
 {
     
-    public interface IEvent
+    public interface IEventServices
     {
         Task<List<Event>> GetAllAsync();
         Task<Event?> GetByIdAsync(string id);

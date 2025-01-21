@@ -2,10 +2,11 @@
 @inject ILoginRepository LoginRepository
 @inject NavigationManager NavigationManager
 
-    <link href="css/login.css" rel="stylesheet" />
-                                   
+<link href="css/App.css" rel="stylesheet" />
 
-    <h3>Login</h3>
+
+
+<h3>Login</h3>
     <div class="login-container">
     <form @onsubmit="HandleLogin">
     <div>
@@ -37,7 +38,7 @@ private async Task HandleLogin()
         await Task.Delay(millisecondsDelay: 1000);
 
         // Redirect to the home page
-        NavigationManager.NavigateTo(uri: "/Login");
+        NavigationManager.NavigateTo(uri: "/");
     }
     else
     {

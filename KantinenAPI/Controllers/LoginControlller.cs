@@ -1,5 +1,5 @@
 using Core.Model;
-using KantinenAPI.Repositories;
+using KantinenAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 

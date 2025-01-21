@@ -1,15 +1,16 @@
 using Core.Model;
 using System.Collections.Generic;
 using System.Linq;
-using KantinenAPI.Repositories;
+using KantinenAPI.Repository;
 
 
-public class EventsRepository : IEventsRepository
+public class EventRepository : IEventRepository
+
 {
-    private readonly List<Events> _events = new List<Events>();
+    private readonly List<Event> _events = new List<Event>();
 
-    public IEnumerable<Events> GetAll() => _events;
+    public IEnumerable<Event> GetAllEvents() => _events;
 
-    public void Add(Events evt) => _events.Add(evt);
+    public void AddEvent(Event evt) => _events.Add(evt);
 }
 

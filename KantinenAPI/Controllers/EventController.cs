@@ -1,6 +1,7 @@
 using Core.Model;
 using Microsoft.AspNetCore.Mvc;
-using Core.Model.Services;
+using Core.Services;
+using KantinenAPI.Repository;
 
 namespace KantinenAPI.Controllers
 {
@@ -8,31 +9,31 @@ namespace KantinenAPI.Controllers
     [Route("api/events")]
     public class EventsController : ControllerBase
     {
-        private readonly IEventsService _service;
+        private readonly IEventRepository _repository;
 
-        public EventsController(IEventsService service)
+        public EventsController(IEventRepository repository)
         {
-            _service = service;
+            _repository = repository;
         }
 
         // GET: api/events
         [HttpGet]
         public IActionResult GetEvents()
         {
-            var events = _service.GetEvents();
+            var events = _repository.GetAllEvents();
             return Ok(events);
         }
 
         // POST: api/events
         [HttpPost]
-        public IActionResult AddEvent([FromBody] Events evt)
+        public IActionResult AddEvent( Event evt)
         {
             if (evt == null)
             {
                 return BadRequest("Invalid event data.");
             }
 
-            _service.AddEvent(evt);
+            _repository.AddEvent(evt);
             return CreatedAtAction(nameof(GetEvents), new { id = evt.Id }, evt);
         }
     }

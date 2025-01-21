@@ -1,14 +1,14 @@
 using System.Net.Http.Json;
 using Core.Model;
 
-namespace Kantinen.Services
+namespace Core.Services
 {
-    public class LoginService : ILoginService
+    public class LoginServices : ILoginServices
     {
         HttpClient http;
         private string _serverUrl = "https://localhost:7095";
 
-        public LoginService(HttpClient http)
+        public LoginServices(HttpClient http)
         {
             this.http = http;
         }

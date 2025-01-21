@@ -1,7 +1,7 @@
 using Core.Model;
 
 
-namespace KantinenAPI.Repositories
+namespace KantinenAPI.Repository
 
 {
     public interface ILoginRepository

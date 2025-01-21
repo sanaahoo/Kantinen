@@ -10,3 +10,4 @@
 /Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/refint/Core.dll
 /Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.pdb
 /Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/ref/Core.dll
+/Users/sanaahouira/RiderProjects/Kantinen/Core/obj/Debug/net8.0/Core.sourcelink.json

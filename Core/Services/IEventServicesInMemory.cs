@@ -1,9 +1,9 @@
 using System.Net.Http.Json;
 using Core.Model;
 
-namespace Kantinen.Services
+namespace Core.Services
 {
-    public class EventServiceInMemory : IEvent
+    public class EventServicesInMemory : IEventServices
     {
         private readonly List<Event> _events = new();
 

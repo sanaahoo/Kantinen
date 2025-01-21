@@ -1,5 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
+using Core.Model;
+using Core.Services;
+using KantinenAPI.Repository;
 
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -23,3 +29,17 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MongoDB>(Configuration.GetSection("MongoDBSettings"));
+
+    services.AddSingleton<IMongoClient, MongoClient>(sp =>
+    {
+        var settings = sp.GetRequiredService<IOptions<MongoDB>>().Value;
+        return new MongoClient(settings.ConnectionString);
+    });
+
+    // Add other services
+    services.AddRazorPages();
+}

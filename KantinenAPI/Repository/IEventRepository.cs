@@ -4,13 +4,15 @@ using System.Threading.Tasks;
 
 
 
-namespace KantinenAPI.Repositories
+namespace KantinenAPI.Repository
 {
 
 
-    public interface IEventsRepository
+    public interface IEventRepository
     {
-        IEnumerable<Events> GetAll();
-        void Add(Events evt);
+        IEnumerable<Event> GetAllEvents();
+        void AddEvent(Event evt);
+      
+        
     }
 }

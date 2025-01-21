@@ -1,10 +1,10 @@
 namespace Core.Services;
 
-public class LoginServiceInMemory 
+public class LoginServicesInMemory 
 {
     private readonly Dictionary<string, string> _users;
 
-    public LoginServiceInMemory()
+    public LoginServicesInMemory()
     {
         // Mock users: Username => Password
         _users = new Dictionary<string, string>

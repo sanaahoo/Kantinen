@@ -1,10 +1,12 @@
 using Core.Model;
 using MongoDB.Driver;
-using Core.Model;
-using KantinenAPI.Repositories;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 
-namespace KantinenAPI.Repositories;
+
+
+namespace KantinenAPI.Repository;
 
 public class LoginRepository : ILoginRepository
 {

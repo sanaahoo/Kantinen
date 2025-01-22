@@ -13,8 +13,11 @@ public class LoginRepository : ILoginRepository
 {
     private IMongoCollection<Login> _loginCollection;
 
-    public LoginRepository(){
-        var client = new MongoClient("mongodb+srv://sanaa:9xRHv28k5gLVqjL5@cluster0.9rqsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+    public LoginRepository()
+    {
+        var client =
+            new MongoClient(
+                "mongodb+srv://sanaa:9xRHv28k5gLVqjL5@cluster0.9rqsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
         var database = client.GetDatabase("kantinedb");
         _loginCollection = database.GetCollection<Login>("login_collection");
     }
@@ -29,7 +32,8 @@ public class LoginRepository : ILoginRepository
     public Task<bool> AuthenticateAsync(string username, string password)
     {
         // Check if the username exists and the password matches
-        var isAuthenticated = _validUsers.TryGetValue(key: username, value: out var storedPassword) && storedPassword == password;
+        var isAuthenticated = _validUsers.TryGetValue(key: username, value: out var storedPassword) &&
+                              storedPassword == password;
         return Task.FromResult(result: isAuthenticated);
     }
 
@@ -39,7 +43,15 @@ public class LoginRepository : ILoginRepository
     }
 
     public bool VerifyLogin(string username, string password)
+
     {
-        throw new NotImplementedException();
+
+        Login existingLogin = _loginCollection.Find(a => a.Username == username && a.Password == password)
+            .FirstOrDefault();
+
+        return existingLogin != null; 
+
     }
+
 }
+    

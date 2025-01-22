@@ -6,7 +6,7 @@ namespace Core.Services
     public class LoginServices : ILoginServices
     {
         HttpClient http;
-        private string _serverUrl = "https://localhost:7095";
+        private string _serverUrl = "https://localhost:7086";
 
         public LoginServices(HttpClient http)
         {
@@ -22,7 +22,7 @@ namespace Core.Services
 
         public async Task<bool> VerifyLogin(string username, string password)
         {
-            var response = await http.GetFromJsonAsync<bool>(requestUri: $"{_serverUrl}/api/login/verify?username={username}&password={password}");
+            var response = await http.GetFromJsonAsync<bool>(requestUri: $"{_serverUrl}/api/admins/verify?username={username}&password={password}");
             return response;
         }
 

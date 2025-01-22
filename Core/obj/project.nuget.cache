@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Vg13SHAD2DE=",
+  "dgSpecHash": "zi/LU2j3GGs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\hotso\\Source\\Repos\\Kantinen\\Core\\Core.csproj",
+  "projectFilePath": "/Users/sanaahouira/RiderProjects/Kantinen21/Core/Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\hotso\\.nuget\\packages\\mongodb.bson\\3.1.0\\mongodb.bson.3.1.0.nupkg.sha512",
-    "C:\\Users\\hotso\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
-    "C:\\Users\\hotso\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    "/Users/sanaahouira/.nuget/packages/mongodb.bson/3.1.0/mongodb.bson.3.1.0.nupkg.sha512",
+    "/Users/sanaahouira/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/Users/sanaahouira/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

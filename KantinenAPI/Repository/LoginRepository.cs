@@ -9,7 +9,16 @@ using System.Threading.Tasks;
 namespace KantinenAPI.Repository;
 
 public class LoginRepository : ILoginRepository
+
 {
+    private IMongoCollection<Login> _loginCollection;
+
+    public LoginRepository(){
+        var client = new MongoClient("mongodb+srv://sanaa:9xRHv28k5gLVqjL5@cluster0.9rqsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+        var database = client.GetDatabase("kantinedb");
+        _loginCollection = database.GetCollection<Login>("login_collection");
+    }
+
     // Hardcoded valid credentials for demonstration purposes
     private readonly Dictionary<string, string> _validUsers = new()
     {

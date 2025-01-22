@@ -3,52 +3,57 @@
 @using Core.Model
 
 
-<link href="css/event.css" rel="stylesheet" />
 
-<h3>Event Management</h3>
-<div class="event-container">
-    <form @onsubmit="HandleEventSubmit">
-        <fieldset>
-            <legend>Add a New Event</legend>
+<h3 class="text-center my-4">Event Management</h3>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form class="p-4 border rounded shadow-sm bg-light" @onsubmit="HandleEventSubmit">
+                <fieldset>
+                    <legend class="mb-3 text-primary">Add a New Event</legend>
 
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" @bindvalue="NewEvent.Name" required />
-            </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" id="name" class="form-control" @bindvalue="NewEvent.Name" required />
+                    </div>
 
-            <div>
-                <label for="dato">Date:</label>
-                <input type="date" id="dato" @bindvalue="NewEvent.Dato" required />
-            </div>
+                    <div class="mb-3">
+                        <label for="dato" class="form-label">Date:</label>
+                        <input type="date" id="dato" class="form-control" @bindvalue="NewEvent.Dato" required />
+                    </div>
 
-            <div>
-                <label for="lokation">Location:</label>
-                <input type="text" id="lokation" @bindvalue="NewEvent.Lokation" required />
-            </div>
+                    <div class="mb-3">
+                        <label for="lokation" class="form-label">Location:</label>
+                        <input type="text" id="lokation" class="form-control" @bindvalue="NewEvent.Lokation" required />
+                    </div>
 
-            <div>
-                <label for="deltagerAntal">Participants:</label>
-                <input type="number" id="deltagerAntal" @bindvalue="NewEvent.DeltagerAntal" required />
-            </div>
+                    <div class="mb-3">
+                        <label for="deltagerAntal" class="form-label">Participants:</label>
+                        <input type="number" id="deltagerAntal" class="form-control" @bindvalue="NewEvent.DeltagerAntal" required />
+                    </div>
 
-            <div>
-                <label for="madValg">Food Choice:</label>
-                <input type="text" id="madValg" @bindvalue="NewEvent.MadValg" />
-            </div>
+                    <div class="mb-3">
+                        <label for="madValg" class="form-label">Food Choice:</label>
+                        <input type="text" id="madValg" class="form-control" @bindvalue="NewEvent.MadValg" />
+                    </div>
 
-            <div>
-                <label for="saerligeOensker">Special Requests:</label>
-                <input type="text" id="saerligeOensker" @bindvalue="NewEvent.SærligeØnsker" />
-            </div>
+                    <div class="mb-3">
+                        <label for="saerligeOensker" class="form-label">Special Requests:</label>
+                        <input type="text" id="saerligeOensker" class="form-control" @bindvalue="NewEvent.SærligeØnsker" />
+                    </div>
 
-            <div>
-                <label for="kunde">Customer:</label>
-                <input type="text" id="kunde" @bindvalue="NewEvent.Kunde" />
-            </div>
+                    <div class="mb-3">
+                        <label for="kunde" class="form-label">Customer:</label>
+                        <input type="text" id="kunde" class="form-control" @bindvalue="NewEvent.Kunde" />
+                    </div>
 
-            <button type="submit">Add Event</button>
-        </fieldset>
-    </form>
+                    <button type="submit" class="btn btn-primary w-100">Add Event</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
 
     <hr />
 
@@ -87,7 +92,7 @@
     {
         <p>No events available.</p>
     }
-</div>
+
 
 @code
 

@@ -26,15 +26,15 @@ namespace KantinenAPI.Controllers
 
         [HttpPost]
         [Route("addEvent")]
-        public IActionResult AddEvent( Event evt)
+        public async Task<IActionResult> AddEvent( Event evt)
         {
             if (evt == null)
             {
                 return BadRequest("Invalid event data.");
             }
 
-            _repository.AddEvent(evt);
-            return CreatedAtAction(nameof(GetEvents), new { id = evt.Id }, evt);
+            await _repository.AddEvent(evt);
+            return Ok();
         }
     }
 }

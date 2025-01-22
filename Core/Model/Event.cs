@@ -4,7 +4,7 @@ namespace Core.Model
 {
     public class Event
     {
-        public string? Id { get; set; }
+        public ObjectId? Id { get; set; }
         public string Name { get; set; } = "";
         public DateTime Dato { get; set; }
         public string Lokation { get; set; } = "";

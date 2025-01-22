@@ -12,6 +12,13 @@ namespace Core.Services
         {
             this.http = http;
         }
+        
+        public async Task LoginAsync(string username, string password)
+        { }
+        
+        
+        
+        
 
         public async Task<bool> VerifyLogin(string username, string password)
         {

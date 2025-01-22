@@ -1,0 +1,51 @@
+@page "/login"
+@inject ILoginServices LoginServices
+@inject NavigationManager NavigationManager
+
+
+
+
+<h3 class="text-center my-4">Login</h3>
+<div class="container d-flex justify-content-center">
+    <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
+        <form @onsubmit="HandleLogin">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" id="username" class="form-control" @bind="Username" />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" class="form-control" @bind="Password" />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+            <p class="mt-3 text-center @((Message == "Login successful!") ? "text-success" : "text-danger")">@Message</p>
+        </form>
+    </div>
+</div>
+
+
+    @code {
+        private string Username { get; set; } = string.Empty;
+        private string Password { get; set; } = string.Empty;
+        private string Message { get; set; } = string.Empty;
+
+        private async Task HandleLogin()
+        {
+            // Call the login repository to validate credentials
+            var isVerify = await LoginServices.VerifyLogin(username: Username, password: Password);
+
+            if (isVerify)
+            {
+                Message = "Login successful!";
+                await Task.Delay(millisecondsDelay: 1000);
+
+                // Redirect to the home page
+                NavigationManager.NavigateTo(uri: "/");
+            }
+            else
+            {
+                Message = "Invalid username or password.";
+            }
+        }
+
+    }

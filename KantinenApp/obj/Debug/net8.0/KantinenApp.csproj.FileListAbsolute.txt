@@ -3137,3 +3137,4 @@ C:/Users/hotso/Source/Repos/Kantinen/KantinenApp/obj/Debug/net8.0/ref/KantinenAp
 /Users/sanaahouira/RiderProjects/Kantinen21/KantinenApp/obj/Debug/net8.0/KantinenApp.pdb
 /Users/sanaahouira/RiderProjects/Kantinen21/KantinenApp/obj/Debug/net8.0/ref/KantinenApp.dll
 /Users/sanaahouira/RiderProjects/Kantinen21/KantinenApp/obj/Debug/net8.0/scopedcss/Pages/EventPage.Razor.rz.scp.css
+/Users/sanaahouira/RiderProjects/Kantinen21/KantinenApp/obj/Debug/net8.0/scopedcss/Pages/LoginPage.Razor.rz.scp.css

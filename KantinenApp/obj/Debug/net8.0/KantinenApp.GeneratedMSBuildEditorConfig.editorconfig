@@ -30,10 +30,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/sanaahouira/RiderProjects/Kantinen21/KantinenApp/Pages/LoginPage.Razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW5QYWdlLlJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/sanaahouira/RiderProjects/Kantinen21/KantinenApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -49,3 +45,7 @@ build_metadata.AdditionalFiles.CssScope = b-o8bq8kwman
 [/Users/sanaahouira/RiderProjects/Kantinen21/KantinenApp/Pages/EventPage.Razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXZlbnRQYWdlLlJhem9y
 build_metadata.AdditionalFiles.CssScope = b-4vhvtmtre1
+
+[/Users/sanaahouira/RiderProjects/Kantinen21/KantinenApp/Pages/LoginPage.Razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW5QYWdlLlJhem9y
+build_metadata.AdditionalFiles.CssScope = b-wqqwjmfzps

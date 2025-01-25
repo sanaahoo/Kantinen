@@ -1,12 +1,12 @@
 namespace Core.Services;
 
-public class LoginServicesInMemory 
+public class LoginServicesInMemory
 {
-    private readonly Dictionary<string, string> _users;
+    private readonly Dictionary<string, string> _users; // Mock-database til brugere (brugernavn => adgangskode)
 
     public LoginServicesInMemory()
     {
-        // Mock users: Username => Password
+        // Mock-brugere: Brugernavn => Adgangskode
         _users = new Dictionary<string, string>
         {
             { "admin", "password123" },
@@ -14,18 +14,20 @@ public class LoginServicesInMemory
         };
     }
 
+    // Autentificerer en bruger ved at tjekke brugernavn og adgangskode
     public Task<bool> AuthenticateAsync(string username, string password)
     {
-        // Validate credentials against the mock user list
+        // Validerer brugeroplysninger mod mock-brugerlisten
         return Task.FromResult(result: _users.TryGetValue(key: username, value: out var storedPassword) && storedPassword == password);
     }
 
+    // Registrerer en ny bruger, hvis brugernavnet ikke allerede findes
     public Task<bool> RegisterAsync(string username, string password)
     {
         if (_users.ContainsKey(key: username))
-            return Task.FromResult(result: false);
+            return Task.FromResult(result: false); // Brugernavnet findes allerede
 
-        _users[key: username] = password;
-        return Task.FromResult(result: true);
+        _users[key: username] = password; // Tilføjer ny bruger
+        return Task.FromResult(result: true); // Registrering lykkedes
     }
 }

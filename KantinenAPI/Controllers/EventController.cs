@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Core.Services;
 using KantinenAPI.Repository;
 
+
+
+
 namespace KantinenAPI.Controllers
 {
     [ApiController]
@@ -36,5 +39,6 @@ namespace KantinenAPI.Controllers
             await _repository.AddEvent(evt);
             return Ok();
         }
+        
     }
 }

@@ -1,6 +1,9 @@
 @page "/login"
 @inject ILoginServices LoginServices
 @inject NavigationManager NavigationManager
+@inject ILoginServices LoginService
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject NavigationManager Navigation
 
 
 
@@ -32,20 +35,38 @@
         private async Task HandleLogin()
         {
             // Call the login repository to validate credentials
-            var isVerify = await LoginServices.VerifyLogin(username: Username, password: Password);
 
-            if (isVerify)
-            {
-                Message = "Login successful!";
-                await Task.Delay(millisecondsDelay: 1000);
+        // Call the VerifyLogin function
 
-                // Redirect to the home page
-                NavigationManager.NavigateTo(uri: "/");
-            }
-            else
-            {
-                Message = "Invalid username or password.";
-            }
+        var token = await LoginService.VerifyLogin(Username, Password);
+
+
+
+        if (!string.IsNullOrEmpty(token)) 
+
+        {
+
+            // Store the token in local storage
+
+            await LocalStorage.SetItemAsync("jwt", token);
+
+
+
+            // Navigate to the home page or another secure page
+
+            Navigation.NavigateTo("/", true);
+
+        }
+
+        else
+
+        {
+
+            // Display an error message if login fails
+
+            Message = "Invalid username or password.";
+
+        }
         }
 
     }

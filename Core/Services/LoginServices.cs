@@ -20,15 +20,36 @@ namespace Core.Services
         
         
 
-        public async Task<bool> VerifyLogin(string username, string password)
+        public async Task<string> VerifyLogin(string username, string password)
         {
-            var response = await http.GetFromJsonAsync<bool>(requestUri: $"{_serverUrl}/api/admins/verify?username={username}&password={password}");
-            return response;
+            var loginModel = new
+            {
+                Username = username,
+                Password = password
+            };
+
+            // Send login request
+            var response = await http.PostAsJsonAsync($"{_serverUrl}/api/admins/verify", loginModel);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Extract the token from the response
+                var tokenResponse = await response.Content.ReadFromJsonAsync<TokenResponse>();
+                return tokenResponse?.Token ?? string.Empty;
+            }
+
+            return string.Empty; // Return empty string if not verified
         }
 
         public Task<Login> GetLogin(string username)
         {
             throw new NotImplementedException();
+        }
+
+        // DTO for the token response
+        public class TokenResponse
+        {
+            public string Token { get; set; }
         }
     }
 }

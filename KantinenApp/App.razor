@@ -1,12 +1,99 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
-        <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
-    </Found>
-    <NotFound>
-        <PageTitle>Not found</PageTitle>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
-        </LayoutView>
-    </NotFound>
-</Router>
+﻿@using System.Text.Json
+<CascadingAuthenticationState>
+
+    <Router AppAssembly="@typeof(App).Assembly" OnNavigateAsync="HandleNavigation">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        </Found>
+        <NotFound>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+@code {
+    [Inject] private Blazored.LocalStorage.ILocalStorageService LocalStorage { get; set; }
+    [Inject] private NavigationManager Navigation { get; set; }
+
+    private async Task HandleNavigation(NavigationContext context)
+    {
+        // Prevent loop: Allow access to the login page without token validation
+        if (context.Path.Equals("login", StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+        var token = await LocalStorage.GetItemAsync<string>("jwt");
+
+        if (string.IsNullOrEmpty(token))
+        {
+            RedirectToLogin();
+            return;
+        }
+
+        if (IsTokenExpired(token))
+        {
+            // Clear the token and redirect to the login page if expired
+            await LocalStorage.RemoveItemAsync("jwt");
+            RedirectToLogin();
+        }
+    }
+
+    private bool IsTokenExpired(string token)
+    {
+        try
+        {
+            // Decode the token to extract claims
+            var tokenParts = token.Split('.');
+            if (tokenParts.Length != 3) return true; // Invalid token format
+
+            var payload = tokenParts[1];
+            var jsonBytes = ParseBase64WithoutPadding(payload);
+            var claims = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
+
+            if (claims != null && claims.TryGetValue("exp", out var exp))
+            {
+                // Check the type of exp and convert it to a Unix timestamp
+                if (exp is JsonElement jsonElement && jsonElement.ValueKind == JsonValueKind.Number)
+                {
+                    var expirationTime = DateTimeOffset.FromUnixTimeSeconds(jsonElement.GetInt64()).UtcDateTime;
+                    return expirationTime < DateTime.UtcNow;
+                }
+
+                if (exp is long expirationLong)
+                {
+                    var expirationTime = DateTimeOffset.FromUnixTimeSeconds(expirationLong).UtcDateTime;
+                    return expirationTime < DateTime.UtcNow;
+                }
+
+                if (exp is int expirationInt)
+                {
+                    var expirationTime = DateTimeOffset.FromUnixTimeSeconds(expirationInt).UtcDateTime;
+                    return expirationTime < DateTime.UtcNow;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log the exception if needed
+            Console.WriteLine(ex.Message);
+            // Assume token is invalid if there's an error
+            return true;
+        }
+
+        return true;
+    }
+
+
+    private byte[] ParseBase64WithoutPadding(string base64)
+    {
+        if (base64.Length % 4 == 2) base64 += "==";
+        else if (base64.Length % 4 == 3) base64 += "=";
+        return Convert.FromBase64String(base64);
+    }
+
+    private void RedirectToLogin()
+    {
+        Navigation.NavigateTo("/login", true);
+    }
+}

@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">KantinenApp</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -16,18 +19,34 @@
         </div>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="event">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Event
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Events
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="login">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Login
-            </NavLink>
+            @if (isUserLoggedIn)
+            {
+                <NavLink class="nav-link" href="#" @onclick=Logout>
+                    <span class="bi bi-box-arrow-left-nav-menu" aria-hidden="true"></span> <div>Logout</div>
+                </NavLink>
+            }
+            else
+            {
+                <NavLink class="nav-link" href="login">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> <div>Login</div>
+                </NavLink>
+            }
         </div>
     </nav>
 </div>
 
 @code {
+    private bool isUserLoggedIn;
+
+    protected override async Task OnInitializedAsync()
+    {
+        isUserLoggedIn = await AuthService.IsUserLoggedIn();
+    }
+
     private bool collapseNavMenu = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -35,6 +54,19 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    private async Task Logout()
+    {
+        await AuthService.Logout();
+        isUserLoggedIn = false;
+        Navigation.NavigateTo("/login", true); // Redirect to login page
+    }
+    private void NavigateToLogin()
+
+    {
+
+        Navigation.NavigateTo("/login");
     }
 
 }

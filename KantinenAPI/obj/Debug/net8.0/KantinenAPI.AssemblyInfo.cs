@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KantinenAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b58f778c3920e547a46ddd96ecfe07e75b8621a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b59dc01c1a5f72e95da421072b6661e5c388d7fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("KantinenAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KantinenAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

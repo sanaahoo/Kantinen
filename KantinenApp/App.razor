@@ -13,87 +13,102 @@
     </Router>
 </CascadingAuthenticationState>
 @code {
+    // Injicerer LocalStorage-service til at gemme og hente JWT-token
     [Inject] private Blazored.LocalStorage.ILocalStorageService LocalStorage { get; set; }
+
+    // Injicerer NavigationManager til at håndtere navigation
     [Inject] private NavigationManager Navigation { get; set; }
 
+    // Håndterer navigation og validerer JWT-token
     private async Task HandleNavigation(NavigationContext context)
     {
-        // Prevent loop: Allow access to the login page without token validation
+        // Tillad adgang til login-siden uden token-validering (for at undgå uendelig loop)
         if (context.Path.Equals("login", StringComparison.OrdinalIgnoreCase))
         {
             return;
         }
+
+        // Henter JWT-token fra LocalStorage
         var token = await LocalStorage.GetItemAsync<string>("jwt");
 
+        // Hvis tokenet ikke findes, omdirigeres brugeren til login-siden
         if (string.IsNullOrEmpty(token))
         {
             RedirectToLogin();
             return;
         }
 
+        // Hvis tokenet er udløbet, fjernes det, og brugeren omdirigeres til login-siden
         if (IsTokenExpired(token))
         {
-            // Clear the token and redirect to the login page if expired
-            await LocalStorage.RemoveItemAsync("jwt");
+            await LocalStorage.RemoveItemAsync("jwt"); // Fjerner det udløbede token
             RedirectToLogin();
         }
     }
 
+    // Tjekker om et JWT-token er udløbet
     private bool IsTokenExpired(string token)
     {
         try
         {
-            // Decode the token to extract claims
+            // Dekoder tokenet for at udtrække claims
             var tokenParts = token.Split('.');
-            if (tokenParts.Length != 3) return true; // Invalid token format
+            if (tokenParts.Length != 3) return true; // Ugyldigt token-format
 
+            // Henter payload-delen af tokenet
             var payload = tokenParts[1];
-            var jsonBytes = ParseBase64WithoutPadding(payload);
-            var claims = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
+            var jsonBytes = ParseBase64WithoutPadding(payload); // Dekoder Base64 uden padding
+            var claims = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes); // Deserialiserer payload til et dictionary
 
+            // Tjekker om "exp" (expiration time) claim findes i payload
             if (claims != null && claims.TryGetValue("exp", out var exp))
             {
-                // Check the type of exp and convert it to a Unix timestamp
+                // Tjekker typen af "exp" og konverterer det til en Unix-timestamp
                 if (exp is JsonElement jsonElement && jsonElement.ValueKind == JsonValueKind.Number)
                 {
                     var expirationTime = DateTimeOffset.FromUnixTimeSeconds(jsonElement.GetInt64()).UtcDateTime;
-                    return expirationTime < DateTime.UtcNow;
+                    return expirationTime < DateTime.UtcNow; // Returnerer true, hvis tokenet er udløbet
                 }
 
                 if (exp is long expirationLong)
                 {
                     var expirationTime = DateTimeOffset.FromUnixTimeSeconds(expirationLong).UtcDateTime;
-                    return expirationTime < DateTime.UtcNow;
+                    return expirationTime < DateTime.UtcNow; // Returnerer true, hvis tokenet er udløbet
                 }
 
                 if (exp is int expirationInt)
                 {
                     var expirationTime = DateTimeOffset.FromUnixTimeSeconds(expirationInt).UtcDateTime;
-                    return expirationTime < DateTime.UtcNow;
+                    return expirationTime < DateTime.UtcNow; // Returnerer true, hvis tokenet er udløbet
                 }
             }
         }
         catch (Exception ex)
         {
-            // Log the exception if needed
+            // Logger eventuelle fejl (kan udskiftes med en rigtig logger)
             Console.WriteLine(ex.Message);
-            // Assume token is invalid if there's an error
+            // Antager, at tokenet er ugyldigt, hvis der opstår en fejl
             return true;
         }
 
+        // Hvis "exp" claim ikke findes, antages det, at tokenet er ugyldigt
         return true;
     }
 
-
+    // Hjælpemetode til at dekode Base64-streng uden padding
     private byte[] ParseBase64WithoutPadding(string base64)
     {
+        // Tilføjer manglende padding-tegn, hvis nødvendigt
         if (base64.Length % 4 == 2) base64 += "==";
         else if (base64.Length % 4 == 3) base64 += "=";
+
+        // Dekoder Base64-strengen til et byte-array
         return Convert.FromBase64String(base64);
     }
 
+    // Omdirigerer brugeren til login-siden
     private void RedirectToLogin()
     {
-        Navigation.NavigateTo("/login", true);
+        Navigation.NavigateTo("/login", true); // Omdirigerer til login-siden og tvinger en refresh
     }
 }
